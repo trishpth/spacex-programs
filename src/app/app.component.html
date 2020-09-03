@@ -1,0 +1,116 @@
+<div class="container " *ngIf="!fetchingData">
+  <br>
+  <h1>SpaceX Launch Programs</h1>
+  <div class="row">
+    <div class="col-md-2">
+
+      <mat-card class="search-card">
+        <mat-card-header>
+          <h3 class="font-weight-bold mb-4">Filters</h3>   
+
+          <br>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="launch-years" >
+            <div class="text-center text-secondary"> <u>Launch year</u> </div>
+            <br>
+
+            <div class="row">
+              
+              <div class="col-md-6 col-sm-6 mb-4" *ngFor="let year of launchyears">
+                <button type="button" class="btn btn-success btn-sm" (click)="filterData(year)">{{year}}</button>
+
+              </div>
+            </div>
+
+          </div>
+
+          <br>
+
+          <div class="successful-launch" >
+            <div class="text-center text-secondary"> <u>Successful Launch</u> </div>
+            <br>
+
+            <div class="row">
+              
+              <div class="col-md-6 mb-4">
+                <button type="button" class="btn btn-success btn-sm" (click)="filterData(true)">true</button>
+
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <button type="button" class="btn btn-success btn-sm" (click)="filterData(false)">false</button>
+
+              </div>
+            </div>
+
+          </div>
+
+          <br>
+
+          <div class="successful-landing" >
+            <div class="text-center text-secondary"> <u>Successful Landing</u> </div>
+            <br>
+
+            <div class="row">
+              
+              <div class="col-md-6 mb-4">
+                <button type="button" class="btn btn-success btn-sm" (click)="filterData(true)">true</button>
+
+              </div>
+
+              <div class="col-md-6 mb-4">
+                <button type="button" class="btn btn-success btn-sm" (click)="filterData(false)">false</button>
+
+              </div>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+    <div class="col ml-4">
+
+      <div class="row" >
+        <div class="col-md-4  mb-4" *ngFor="let mission of allMissions">
+        <mat-card class="example-card">
+          <mat-card-header>
+          </mat-card-header>
+          <img mat-card-image  [src]="_DomSanitizationService.bypassSecurityTrustUrl(mission.links.mission_patch)" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <div class="text-primary font-weight-bold">{{mission.mission_name}} #  {{mission.flight_number}} </div>
+            
+            <div class="font-weight-bold">Mission Id:</div>
+            
+              <span class="text-secondary">
+              <ul *ngFor="let id of mission.mission_id">
+                <li>{{id}}</li>
+              </ul>    
+              <span *ngIf="mission.mission_id.length==0">No Mission ID available</span>    
+              </span> 
+            <div class="font-weight-bold"> Launch Year:</div> <span  class="text-secondary">{{mission.launch_year}}</span> 
+            <div class="font-weight-bold">  Successful Launch:</div> <span  class="text-secondary">{{mission.launch_success}}</span> 
+             <div class="font-weight-bold">  Successful Landing:</div> <span  class="text-secondary">{{mission.launch_landing}}</span>
+          </mat-card-content>
+        </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="footer">
+  <span class="font-weight-bold">Developed By:</span> Trisha Pathak
+</div>
+</div>
+
+<div class="container" *ngIf="fetchingData">
+  <div class="row">
+    <div class="col offset-md-6">
+      <div  style="margin: 0 auto">  <mat-spinner></mat-spinner>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,26 @@
+.example-card {
+    max-width: 200px;
+    max-height: 500px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  
+  .search-card{
+    max-width: 200px;
+    max-height: auto;
+  }
+  hr.style1{
+	border-top: 2px solid #8c8b8b;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #8c8b8b;
+    text-align: center;
+  }
