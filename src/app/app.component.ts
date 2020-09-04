@@ -15,6 +15,8 @@ export class AppComponent implements OnInit{
   launchSelected='';
   landingSelected = '';
   fetchingData = true;
+  selectedYearValue= '';
+  
   constructor(private spacexService:SpacexService,private _DomSanitizationService: DomSanitizer){
 
   }
@@ -34,7 +36,7 @@ export class AppComponent implements OnInit{
   }
 
   filterData(val){
-
+    this.selectedYearValue = val;
     this.fetchingData = true;
     this.yearSelected = val;
     this.spacexService.getFilteredData(this.launchSelected,this.landingSelected,this.yearSelected).subscribe((data)=>{

@@ -12,13 +12,15 @@
         </mat-card-header>
         <mat-card-content>
           <div class="launch-years" >
-            <div class="text-center text-secondary"> <u>Launch year</u> </div>
+            <div class="text-center text-secondary"> <u>Launch year {{selectedValue}}</u> </div>
             <br>
 
             <div class="row">
               
               <div class="col-md-6 col-sm-6 mb-4" *ngFor="let year of launchyears">
-                <button type="button" class="btn btn-success btn-sm" (click)="filterData(year)">{{year}}</button>
+                <button type="button" class="btn btn-success btn-sm" 
+                [ngClass]="{'selected' : selectedYearValue==year, 'notSelected': selectedYearValue!=year}"  
+                (click)="filterData(year)">{{year}}</button>
 
               </div>
             </div>

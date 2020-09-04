@@ -24,3 +24,15 @@
     background-color: #f8f9fa!important;
     text-align: center;
   }
+
+  .notSelected{
+opacity: .5;
+  }
+
+  .selected{
+    opacity: 1;
+}
+
+  /* button:active{
+    background:olive;
+} */
