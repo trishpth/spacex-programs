@@ -46,10 +46,13 @@ export class AppComponent implements OnInit{
 
   onLaunchClick(val){
     this.launchSelected = val;
+    this.filterData(this.yearSelected);
   }
 
   onLandingClick(val){
     this.landingSelected = val;
+    this.filterData(this.yearSelected);
+
   }
 
 }
